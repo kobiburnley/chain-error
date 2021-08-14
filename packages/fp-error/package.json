@@ -4,6 +4,7 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/cjs/index.d.ts",
+  "sideEffects": false,
   "devDependencies": {
     "@qoby/chain-error": "^1.0.0",
     "fp-ts": "^2.0.0",
