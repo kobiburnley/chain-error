@@ -49,25 +49,9 @@ describe('ChainError', () => {
       error = e
     }
 
-    expect(error?.stack).toContain('Caused by: Error: chain1')
-    expect(error?.stack).toContain('Caused by: Error: Original Error')
-  })
+    const stack = error?.stack;
 
-  it('memoize error stack', async () => {
-    const promise = chain2()
-
-    let error: Error | null = null
-    try {
-      await flush(promise)
-    } catch (e) {
-      error = e
-    }
-
-    const causeSpy = jest.spyOn(error as ChainError, 'cause', 'get')
-
-    void error?.stack
-    void error?.stack
-
-    expect(causeSpy).toHaveBeenCalledTimes(1)
+    expect(stack).toContain('Caused by: Error: chain1')
+    expect(stack).toContain('Caused by: Error: Original Error')
   })
 })
