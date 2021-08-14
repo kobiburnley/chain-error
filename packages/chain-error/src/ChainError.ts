@@ -3,48 +3,30 @@ export interface ChainErrorParams {
   readonly cause?: unknown
 }
 
-export interface Chainable {
+export interface MaybeChainable {
   readonly cause?: unknown
   readonly stack?: string
 }
 
-function getOriginalStack(this: ChainError) {
-  return this._originalStack
-}
-
-function getStack(this: ChainError) {
-  return this.longStack
-}
-
 function getLongStack(this: ChainError) {
-  if (this._longStack == null) {
-    let s = this._originalStack
-    let current = this.cause
-    while (current != null) {
-      const causeStack = (current as Chainable)?.stack ?? String(current)
-      s += '\nCaused by: ' + causeStack
-      current = (current as Chainable)?.cause
-    }
-
-    Object.defineProperty(this, '_longStack', {
-      value: s,
-      enumerable: false,
-    })
+  let s = this.originalStack
+  let current = this.cause as MaybeChainable | undefined
+  while (current != null) {
+    const causeStack = current?.stack ?? String(current)
+    s += '\nCaused by: ' + causeStack
+    current = current?.cause as MaybeChainable | undefined
   }
 
-  return this._longStack
+  return s
 }
 
 export interface ChainError {
-  readonly cause: unknown
-  readonly longStack?: string
-  readonly originalStack?: string
   readonly _tag: string
 }
 
 export class ChainError extends Error {
-  public readonly _originalStack?: string
-  public readonly _longStack?: string
+  public readonly cause?: unknown
+  public readonly originalStack?: string
 
   constructor(params?: ChainErrorParams)
   constructor(message?: string, cause?: unknown)
@@ -59,33 +41,23 @@ export class ChainError extends Error {
 
     super(message)
 
+    // for `isChainableError` helper
     Object.defineProperty(this, '_tag', {
       value: 'ChainError',
       enumerable: false,
     })
 
     Object.defineProperty(this, 'cause', {
-      get() {
-        return cause
-      },
-      configurable: true,
+      value: cause,
+      enumerable: false,
     })
 
-    // memoize original stack before overriding `stack` property
-    Object.defineProperty(this, '_originalStack', {
+    Object.defineProperty(this, 'originalStack', {
       value: this.stack,
       enumerable: false,
     })
 
     Object.defineProperty(this, 'stack', {
-      get: getStack,
-    })
-
-    Object.defineProperty(this, 'originalStack', {
-      get: getOriginalStack,
-    })
-
-    Object.defineProperty(this, 'longStack', {
       get: getLongStack,
     })
   }
