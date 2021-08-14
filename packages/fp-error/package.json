@@ -1,0 +1,20 @@
+{
+  "name": "fp-error",
+  "version": "1.0.0",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "devDependencies": {
+    "@qoby/chain-error": "^1.0.0",
+    "fp-ts": "^2.0.0",
+    "tslib": "^2.0.0"
+  },
+  "peerDependencies": {
+    "fp-ts": "*"
+  },
+  "files": [
+    "dist/cjs",
+    "dist/esm"
+  ],
+  "license": "ISC"
+}
