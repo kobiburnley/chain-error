@@ -41,7 +41,7 @@ export class ChainError extends Error {
 
     super(message)
 
-    // for `isChainableError` helper
+    // for `isChainError` helper
     Object.defineProperty(this, '_tag', {
       value: 'ChainError',
       enumerable: false,
