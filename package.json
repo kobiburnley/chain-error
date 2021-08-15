@@ -11,8 +11,7 @@
   "scripts": {
     "build": "isbt",
     "test": "yarn workspaces run jest",
-    "bump": "lerna version --exact --conventional-commits --no-push",
-    "publish": "lerna exec --since main 'npm publish --access public --registry https://registry.npmjs.org'"
+    "publish": "lerna publish --exact --conventional-commits --no-push --no-git-tag-version --registry https://registry.npmjs.org"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.0.0",
