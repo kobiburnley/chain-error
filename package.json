@@ -11,8 +11,7 @@
   "scripts": {
     "build": "isbt",
     "test": "yarn workspaces run jest",
-    "release": "lerna publish --message \"Publish [skip ci]\" --exact --conventional-commits",
-    "version": "lerna version --message \"Publish [skip ci]\" --exact --conventional-commits --no-push"
+    "release": "lerna publish --message \"Publish [skip ci]\" --exact --conventional-commits"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.0.0",
