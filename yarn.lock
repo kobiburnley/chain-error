@@ -1460,7 +1460,7 @@
   dependencies:
     npmlog "^4.1.2"
 
-"@lerna/version@4.0.0", "@lerna/version@^4.0.0":
+"@lerna/version@4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@lerna/version/-/version-4.0.0.tgz#532659ec6154d8a8789c5ab53878663e244e3228"
   integrity sha512-otUgiqs5W9zGWJZSCCMRV/2Zm2A9q9JwSDS7s/tlKq4mWCYriWo7+wsHEA/nPTMDyYyBO5oyZDj+3X50KDUzeA==
