@@ -11,10 +11,11 @@ export interface MaybeChainable {
 function getLongStack(this: ChainError) {
   let s = this.originalStack
   let current = this.cause as MaybeChainable | undefined
+
   while (current != null) {
-    const causeStack = current?.stack ?? String(current)
+    const causeStack = current.stack ?? String(current)
     s += '\nCaused by: ' + causeStack
-    current = current?.cause as MaybeChainable | undefined
+    current = current.cause as MaybeChainable | undefined
   }
 
   return s
@@ -47,11 +48,13 @@ export class ChainError extends Error {
       enumerable: false,
     })
 
+    // add `cause` member as not enumerable
     Object.defineProperty(this, 'cause', {
       value: cause,
       enumerable: false,
     })
 
+    // persist original stack before overriding `stack` property
     Object.defineProperty(this, 'originalStack', {
       value: this.stack,
       enumerable: false,
