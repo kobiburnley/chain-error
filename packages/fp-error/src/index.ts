@@ -1,1 +1,2 @@
-export * from './tryCatch';
+export * from './tryCatch'
+export * from './tryCatchAsync'
