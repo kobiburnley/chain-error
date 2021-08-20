@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/kobiburnley/chain-error/compare/fp-error@1.1.1...fp-error@1.2.0) (2021-08-20)
+
+
+### Features
+
+* throw left ([#8](https://github.com/kobiburnley/chain-error/issues/8)) ([e275606](https://github.com/kobiburnley/chain-error/commit/e2756061658dc5a0bf87502365f7239cdab803fe))
+
+
+
+
+
 ## [1.1.1](https://github.com/kobiburnley/chain-error/compare/fp-error@1.1.0...fp-error@1.1.1) (2021-08-20)
 
 
