@@ -2280,6 +2280,11 @@ form-data@^3.0.0:
     combined-stream "^1.0.8"
     mime-types "^2.1.12"
 
+fp-error@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/fp-error/-/fp-error-1.0.2.tgz#8b91c8a507bd1445e24acaf632d58e4e2fbe29a5"
+  integrity sha512-kxgIFuTerLfC21JipQD7D885jfUiPg1wKs4MPiomy2/ZsUMCW3sZo9Cp7HCBBAUYQfycvZ/ZYj04TKsN7CaEUQ==
+
 fp-ts@^2.0.0, fp-ts@^2.11.1:
   version "2.11.1"
   resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.11.1.tgz#b1eeb2540728b6328542664888442f8f805d2443"
