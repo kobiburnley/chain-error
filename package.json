@@ -14,18 +14,7 @@
     "release": "lerna publish --message \"Publish [skip ci]\" --exact --conventional-commits"
   },
   "devDependencies": {
-    "@babel/preset-typescript": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@lerna/cli": "^4.0.0",
-    "@lerna/exec": "^4.0.0",
-    "@lerna/publish": "^4.0.0",
-    "@types/jest": "^27.0.1",
-    "husky": "^4.0.0",
-    "jest": "^27.0.0",
-    "isbt": "^1.4.0",
-    "lint-staged": "^10.0.0",
-    "prettier": "^2.0.0",
-    "typescript": "^4.0.0"
+    "@isbt/core": "^1.6.0"
   },
   "husky": {
     "hooks": {
